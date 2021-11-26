@@ -1,0 +1,8 @@
+{
+    "git.ignoreLimitWarning": true,
+    "editor.formatOnSave": true,
+    "cSpell.words": [
+        "brainfuck",
+        "brainfunck"
+    ]
+}
