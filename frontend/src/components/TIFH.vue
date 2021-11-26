@@ -57,7 +57,7 @@ import { Options, Vue } from "vue-class-component";
   data() {
     return {
       message: null,
-      request_url: `http://localhost:3030/api/v1/time_in_4_hours?return_type=${this.return_type}`,
+      request_url: `https://tigtbifhimva.sarda.dev/api/v1/time_in_4_hours?return_type=${this.return_type}`,
     };
   },
 })

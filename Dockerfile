@@ -1,13 +1,25 @@
+FROM node:10 as frontend_builder
+
+WORKDIR /app
+
+COPY ./frontend/package*.json ./
+
+RUN npm install .
+
+COPY ./frontend .
+
+RUN npm run build
+
 FROM rust:1.56.1-slim as rust_builder
 
 RUN USER=root cargo new --bin tgtb
 WORKDIR /tgtb
-COPY ./Cargo.toml ./Cargo.toml
+COPY ./tgtb/Cargo.toml ./Cargo.toml
 RUN cargo build --release
 RUN rm src/*.rs
 
-COPY ./src ./src
-COPY ./Cargo.lock ./Cargo.lock
+COPY ./tgtb/src ./src
+COPY ./tgtb/Cargo.lock ./Cargo.lock
 
 RUN rm ./target/release/deps/tgtb*
 RUN cargo build --release
@@ -28,7 +40,7 @@ RUN groupadd $APP_USER \
     && mkdir -p ${APP}
 
 COPY --from=rust_builder /tgtb/target/release/tgtb ${APP}/tgtb
-COPY --from=frontend_builder /tgtb/target/release/tgtb ${APP}/tgtb
+COPY --from=frontend_builder /app/dist ${APP}/website
 
 RUN chown -R $APP_USER:$APP_USER ${APP}
 
@@ -37,4 +49,4 @@ WORKDIR ${APP}
 
 ENV RUST_BACKTRACE=1
 
-CMD ["./tgtb"]
+CMD ["./tgtb", "--web-dir", "./website"]
