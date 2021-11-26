@@ -104,7 +104,7 @@
       <h2><a href="https://go.dev/">Fuck Rust is great</a></h2>
     </div>
     <div id="footer">
-      <a href="mailto:paul@sarda.dev">
+      <a href="mailto:support@tigtbifhimva.sarda.dev">
         <p>support@tigtbifhimva.sarda.dev</p>
       </a>
       <a href="https://sarda.dev/">
