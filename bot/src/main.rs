@@ -43,11 +43,11 @@ impl EventHandler for Handler {
     async fn interaction_create(&self, ctx: Context, interaction: Interaction) {
         if let Interaction::ApplicationCommand(command) = interaction {
             let content = match command.data.name.as_str() {
-                "time_in_four_hours_in_melbourne" => match get_time_json().await {
+                "four_hours_melbourne" => match get_time_json().await {
                     Err(_) => "cannot reach the server".to_string(),
                     Ok(time_str) => time_str,
                 },
-                "time_in_four_hours_in_melbourne_brainfuck" => match get_time_brainfuck().await {
+                "four_hours_melbourne_brainfuck" => match get_time_brainfuck().await {
                     Err(_) => "cannot reach the server".to_string(),
                     Ok(time_str) => time_str,
                 },
