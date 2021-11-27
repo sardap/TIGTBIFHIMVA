@@ -95,6 +95,12 @@
         <TIFH :return_type="return_type" />
       </div>
       <div class="codebase">
+        <a
+          href="https://discord.com/api/oauth2/authorize?client_id=736822440793210890&permissions=2147485696&scope=bot"
+          >Check out the discord bot</a
+        >
+      </div>
+      <div class="codebase">
         <a href="https://github.com/sardap/TIGTBIFHIMVA"
           >Check out the codebase📚</a
         >
