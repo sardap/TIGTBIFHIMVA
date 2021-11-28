@@ -49,12 +49,14 @@
           <column :xs="12" :md="4" :lg="3">
             <div class="grid-item">
               <img src="@/assets/now.png" width="70" height="70" />
-              <h3>Offset by any multiple of 6</h3>
+              <h3>Open Source</h3>
               <p>
-                This is the only API which understands that Software
-                Artists(💻😔🖌️🎨) don't need time they need the time in four
-                hours in Melbourne Victoria Australia plus a multiple of 6
-                number of hours.
+                Here at TIGTBIFHIMVA we understand that Software
+                Artists(💻😔🖌️🎨) want open source. So at TIGTBIFHIMVA we take
+                other open source projects slap a wrapper around it. Give it a
+                fucking stupid name and release it into the world. Releasing a
+                new version every 15 minutes breaking all previous versions and
+                third party libraries.
               </p>
             </div>
           </column>

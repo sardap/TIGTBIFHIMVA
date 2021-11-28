@@ -7,7 +7,12 @@
       <p>
         {{ message }}
       </p>
-      <p>Powered by TIGTBIFHIMVA</p>
+      <p v-if="time">
+        {{ time }}
+      </p>
+      <br />
+      <p>Powered by</p>
+      <p>TIGTBIFHIMVA</p>
     </div>
     <div v-else>
       <p>Loading</p>
@@ -16,6 +21,11 @@
 </template>
 
 <style scoped>
+p {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 #tifh {
   -moz-box-shadow: 0 0 3px #ccc;
   -webkit-box-shadow: 0 0 3px #ccc;
@@ -25,6 +35,8 @@
   margin: 0 auto;
   text-align: center;
   background-color: #fef9eb;
+  max-width: 90%;
+  word-break: break-all;
 }
 </style>
 
@@ -45,18 +57,22 @@ import { Options, Vue } from "vue-class-component";
       if (this.return_type === "json") {
         const data = await res.json();
         if (data.result !== null) {
-          this.message = `Time in Melbourne Victoria Australia in four hours: ${data.result}`;
+          this.time = data.result;
+          this.message = `Time in Melbourne Victoria Australia in four hours:`;
         } else {
           this.message = "oopise whoopise i made a fucky wucky";
+          this.time = null;
         }
       } else {
         this.message = await res.text();
+        this.time = null;
       }
     },
   },
   data() {
     return {
       message: null,
+      time: true,
       request_url: `https://tigtbifhimva.sarda.dev/api/v1/time_in_4_hours?return_type=${this.return_type}`,
     };
   },
