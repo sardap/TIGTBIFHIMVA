@@ -1,4 +1,4 @@
-FROM node:10 as frontend_builder
+FROM node:10 AS frontend_builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ COPY ./frontend .
 
 RUN npm run build
 
-FROM rust:1.70.0-slim as rust_builder
+FROM rust:1.82.0-slim AS rust_builder
 
 RUN USER=root cargo new --bin tgtb
 WORKDIR /tgtb
